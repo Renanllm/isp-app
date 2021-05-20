@@ -1,12 +1,13 @@
 .countDownContainer {
   width: 40%;
   margin: 3rem 3rem 0 2rem;
-  background: rgba(229, 229, 229, 0.32);
+  background: var(--background-modal);
   border-radius: 5px;
 
   display: flex;
   align-items: center;
   flex-direction: column;
+  padding: 1rem 0 0 0;
 }
 
 .countDownContent {
@@ -17,7 +18,7 @@
   width: 330px;
   height: 330px;
   border-radius: 50%;
-  background: var(--gray-400);
+  background: var(--white);
   border: 12px solid var(--green-400);
 }
 
@@ -33,7 +34,7 @@
 }
 
 .countDownContent > div span {
-  color: var(--white);
+  color: var(--title-dark);
   font-weight: bold;
 }
 
@@ -41,7 +42,7 @@
   font-size: 5rem;
   font-weight: bold;
   margin: 0 0.5rem;
-  color: var(--white);
+  color: var(--title-dark);
 }
 
 .countDownButton {
@@ -57,7 +58,7 @@
   border: 0;
   border-radius: 5px;
 
-  background: var(--blue);
+  background: var(--blue-400);
   color: var(--white);
 
   font-size: 1.25rem;
@@ -67,22 +68,19 @@
 }
 
 .countDownButton:not(:disabled):hover {
-  background: var(--blue-dark);
+  background: var(--blue-500);
 }
 
 .countDownButtonActive {
-  background-color: var(--dark-grey);
-  color: var(--text);
+  background-color: var(--red-500);
+  color: var(--white);
 }
 
 .countDownButtonActive:hover {
-  background-color: var(--red) !important;
-  color: var(--white) !important;
+  background-color: var(--red-600) !important;
 }
 
 .countDownButton:disabled {
   cursor: not-allowed;
-  background-color: var(--dark-grey);
-  color: var(--text);
-  border-bottom: 5px solid var(--green);
+  opacity: 0.7;
 }

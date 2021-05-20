@@ -8,18 +8,18 @@
   justify-content: space-evenly;
   align-items: center;
 
-  background: rgba(229, 229, 229, 0.32);
+  background: var(--blue-500);
 
   .phrase {
     font-size: 2.188rem;
     font-weight: bold;
-    color: var(--green-400);
+    color: var(--white);
   }
 
   span {
     font-size: 1.25rem;
     font-weight: bold;
-    color: rgba(122, 153, 131, 0.7);
+    color: rgba(255, 255, 255, 0.856);
   }
 
   .tag {
@@ -28,7 +28,7 @@
 
     font-size: 1.1rem;
     font-weight: bold;
-    background: var(--brown-300);
+    background: var(--purple-500);
     color: var(--white);
     border-radius: 2px;
 
@@ -37,6 +37,6 @@
     justify-content: center;
 
     position: absolute;
-    top: 6.7rem;
+    top: 6.5rem;
   }
 }

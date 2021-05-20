@@ -2,6 +2,7 @@ import React from 'react';
 import { Header } from './components/Header';
 import { MainContent } from './components/MainContent';
 import { CountDownProvider } from './hooks/useCountDown';
+import { StepProvider } from './hooks/useStep';
 import './styles/global.scss';
 
 function App() {
@@ -9,9 +10,11 @@ function App() {
     <>
       <Header />
 
-      <CountDownProvider>
-        <MainContent />
-      </CountDownProvider>
+      <StepProvider>
+        <CountDownProvider>
+          <MainContent />
+        </CountDownProvider>
+      </StepProvider>
     </>
   );
 }

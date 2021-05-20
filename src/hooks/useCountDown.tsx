@@ -1,4 +1,5 @@
 import { createContext, ReactNode, useContext, useEffect, useState } from 'react';
+import { useStep } from './useStep';
 
 interface CountDownContextData {
   minutes: number;
@@ -15,12 +16,12 @@ interface CountDownProviderProps {
 
 export const CountDownContext = createContext({} as CountDownContextData);
 
-// const INITIAL_TIME = 25 * 60;
-const INITIAL_TIME = 0.1 * 60;
 let countDownTimeout: NodeJS.Timeout;
 
 export function CountDownProvider({ children }: CountDownProviderProps) {
-  const [time, setTime] = useState(INITIAL_TIME);
+  const { activeStep, activateStep, goToTheNextStep } = useStep();
+
+  const [time, setTime] = useState(0);
   const [isActive, setIsActive] = useState(false);
   const [hasFinished, setHasFinished] = useState(false);
 
@@ -34,7 +35,7 @@ export function CountDownProvider({ children }: CountDownProviderProps) {
   function resetCountDown() {
     clearTimeout(countDownTimeout);
     setIsActive(false);
-    setTime(INITIAL_TIME);
+    setTime(activeStep?.timeToFinish ?? 0);
     setHasFinished(false);
   }
 
@@ -48,6 +49,22 @@ export function CountDownProvider({ children }: CountDownProviderProps) {
       setIsActive(false);
     }
   }, [isActive, time]);
+
+  useEffect(() => {
+    if (!activeStep?.hasFinished) {
+      resetCountDown();
+      return;
+    }
+
+    goToTheNextStep();
+  }, [activeStep]);
+
+  useEffect(() => {
+    activateStep({
+      ...activeStep,
+      hasFinished
+    });
+  }, [hasFinished]);
 
   return (
     <CountDownContext.Provider

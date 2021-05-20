@@ -6,25 +6,26 @@
 
 :root {
   --white: #ffffff;
+  --background: #E5E5E5;
 
-  --gray-300: #e5e5e5;
-  --gray-400: #C5C5C5;
+  --blue-400: #6933FF;
+  --blue-500: #5429CC;
+  --blue-800: #3F1F99;
 
-  --green-400: #7A9983;
+  --green-400: #33CC95;
 
   --brown-300: #998A8A;
 
-  // import
-  --gray-line: #DCDDE0;
+  --red-600: #CC2944;
+  --red-500: #E52E4D;
+  --purple-500: #8A22E3;
+
+  --title-dark: #363F5F;
+  --title-grey: #969CB2;
   --text: #D6D6D7;
   --title: #2E384D;
-  --grey: #6C6F72;
+  --background-modal: #F0F2F5;
   --dark-grey: #2E3236;
-  --red: #E83F5B;
-  --green: #4CD62B;
-  --blue: #5965E0;
-  --blue-dark: #4953B8;
-  --blue-twitter: #2AA9E0;
 }
 
 @media (max-width: 1080px) {
@@ -40,7 +41,7 @@
 }
 
 body {
-  background: var(--white);
+  background: var(--background);
   color: var(--green-400);
 }
 

@@ -1,11 +1,11 @@
 .stepsContainer {
   width: 40%;
-  min-height: 26rem;
+  height: 100%;
   margin: 3rem 2rem 0 3rem;
 
   display: flex;
   flex-direction: column;
 
-  background: rgba(229, 229, 229, 0.32);
+  background: var(--background-modal);
   border-radius: 5px;
 }

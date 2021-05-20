@@ -1,4 +1,5 @@
 import { useCountDown } from '../../hooks/useCountDown';
+import { useStep } from '../../hooks/useStep';
 import styles from './styles.module.scss';
 
 export function CountDown() {
@@ -10,6 +11,7 @@ export function CountDown() {
     startCountDown,
     resetCountDown
   } = useCountDown();
+  const { activeStep } = useStep();
 
   const [minuteLeft, minuteRight] = String(minutes).padStart(2, '0').split('');
   const [secondLeft, secondRight] = String(seconds).padStart(2, '0').split('');
@@ -47,7 +49,9 @@ export function CountDown() {
             <button
               type="button"
               className={styles.countDownButton}
-              onClick={() => startCountDown()}>
+              onClick={() => startCountDown()}
+              disabled={!activeStep?.timeToFinish}
+            >
               Iniciar &#9658;
             </button>
           )}
